@@ -1,5 +1,5 @@
 ---
-title: "Title"
+title: "Speedy-Sport"
 subtitle: "Optional subtitle"
 author: 
 - "Courtney Hall"
