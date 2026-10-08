@@ -10,8 +10,8 @@ library(rvest)
 library(robotstxt)
 
 # ---------------------------- create URL object and verify scraping is allowed
-#toc_url <- "https://en.wikisource.org/wiki/The_Real_Mother_Goose"
-#paths_allowed(toc_url)
+toc_url <- "https://ope.ed.gov/athletics/#/datafile/list"
+paths_allowed(toc_url)
 
 # save toc text titles
 #hrefs <- toc_url |> 
