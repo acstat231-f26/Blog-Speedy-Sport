@@ -8,13 +8,17 @@
 library(tidyverse)
 library(rvest)
 library(robotstxt)
+library(readxl)
 
 # ---------------------------- create URL object and verify scraping is allowed
-toc_url <- "https://ope.ed.gov/athletics/#/datafile/list"
-paths_allowed(toc_url)
+# toc_url <- "https://ope.ed.gov/athletics/#/datafile/list"
+# paths_allowed(toc_url)
 
 # save toc text titles
 #hrefs <- toc_url |> 
  # read_html() |> 
   #html_elements("div.wst-plainlist > ul > li > a") |> 
   #html_attr("href")
+
+# Read Excel file
+df <- 
