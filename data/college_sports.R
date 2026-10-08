@@ -21,4 +21,6 @@ library(readxl)
   #html_attr("href")
 
 # Read Excel file
-df <- 
+df <- read_excel("First Semester Classes/Data Science/GitHub/Blog-Speedy-Sport/data/instLevel.xlsx")
+
+save(df, file = "First Semester Classes/Data Science/GitHub/Blog-Speedy-Sport/data/rawData.Rdata")
