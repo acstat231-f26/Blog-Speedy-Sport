@@ -27,15 +27,19 @@ dataset <- load("data/rawData.Rdata")
 # Add a new column to the data that displays the coordinates of each institution
 # Use the package tidygeocoder to turn addresses into coordinates
 ```{r}
-# Needed to change the dataset "df" from a "tibble" type (which is used by tidyverse) back into a "data.frame" to be able to run geocode
+# Needed to change the dataset "df" from a "tibble" type 
+#(which is used by tidyverse) back into a "data.frame" 
+#to be able to run geocode
 dataset_with_coordinates <- as.data.frame(df) |>
   mutate(
-    # Some zipcodes exceed 5 digits, trim them down to 5 digits using str_sub
-    zipcode = str_sub(zip_text, start = 1, end = 5),
+    # Zipcodes exceeding 5 digits, changed using str_sub
+    zipcode = str_sub(zip_text, start = 1, end = 5)
     
-    # Create a new column that combines address, zipcode, and city (to get better coordinates)
-    # str_c() combines multiple pieces of text into one text
-    complete_address = str_c(addr1_txt, city_txt, state_cd, zipcode, sep = ", ")
+ # Create a new column that combines address, zipcode, and city
+ #(to get better coordinates)
+ # str_c() combines multiple pieces of text into one text
+    ,complete_address = str_c(
+      addr1_txt, city_txt, state_cd, zipcode, sep = ", ")
   ) |>
   # Some institutions are "NA" and could not get coordinates
   slice(21:30) |>
