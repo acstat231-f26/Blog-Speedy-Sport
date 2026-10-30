@@ -46,4 +46,81 @@ dataset_with_coordinates <- as.data.frame(df) |>
   # This is the code that gets the coordinates
   geocode(address = complete_address, method = "osm")
 ```
+```{r}
+
+# Comparing Gender Spending Ratios Across NCAA Divisions
+
+# Our goal is to compare gender differences in athletic spending
+# between NCAA Division I-FBS and Division III institutions.
+# We calculate each school's ratio of men's athletic expenses
+# to women's athletic expenses, then compare the divisions.
+
+
+# ClassificationCode 1 represents NCAA Division I-FBS.
+division1 <- filter(df, ClassificationCode == 1)
+
+# ClassificationCodes 6 and 7 represent Division III institutions
+# with and without football, respectively.
+# We include both because we want to study all Division III schools.
+division3 <- filter(df, ClassificationCode == 6 |
+                        ClassificationCode == 7)
+
+
+# Calculating the spending ratio for each institution.
+
+
+# Dividing men's expenses by women's expenses tells us how
+# many dollars a school spends on men's athletics for every
+# dollar it spends on women's athletics.
+# We exclude schools with missing or zero women's expenses
+# because a valid ratio cannot be calculated for them.
+
+division1 <- filter(division1,
+                    !is.na(IL_EXPENSE_MENALL),
+                    !is.na(IL_EXPENSE_WOMENALL),
+                    IL_EXPENSE_WOMENALL > 0)
+
+division3 <- filter(division3,
+                    !is.na(IL_EXPENSE_MENALL),
+                    !is.na(IL_EXPENSE_WOMENALL),
+                    IL_EXPENSE_WOMENALL > 0)
+
+# creating a new column named spending_ratio using mutate.
+# A ratio of 1 means equal spending on men's and women's programs.
+# A ratio greater than 1 means higher spending on men's programs.
+# A ratio below 1 means higher spending on women's programs.
+
+division1 <- mutate(division1,
+                    spending_ratio = IL_EXPENSE_MENALL /
+                                     IL_EXPENSE_WOMENALL)
+
+division3 <- mutate(division3,
+                    spending_ratio = IL_EXPENSE_MENALL /
+                                     IL_EXPENSE_WOMENALL)
+
+
+# Summarizing the spending ratios for each division.
+
+# The median represents the middle spending ratio among schools.
+# We use the median to compare typical institutions without
+# allowing unusually large ratios to dominate the comparison.
+
+
+division1_summary <- summarise(
+  division1,
+  schools = n(), # n() counts the institutions included in each calculation.
+  median_ratio = median(spending_ratio)
+)
+
+division3_summary <- summarise(
+  division3,
+  schools = n(),
+  median_ratio = median(spending_ratio)
+)
+
+
+division1_summary
+division3_summary
+
+```
 
