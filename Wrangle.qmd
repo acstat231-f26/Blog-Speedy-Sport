@@ -47,6 +47,8 @@ dataset_with_coordinates <- as.data.frame(df) |>
   # This is the code that gets the coordinates
   geocode(address = complete_address, method = "osm")
 ```
+
+
 ```{r}
 
 # Comparing Gender Spending Ratios Across NCAA Divisions
@@ -122,8 +124,8 @@ division3_summary <- summarise(
 
 division1_summary
 division3_summary
-
 ```
+
 
 # Wrangling Code for Box Plot Analysis
 ```{r}
