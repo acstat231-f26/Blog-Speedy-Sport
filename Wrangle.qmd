@@ -28,9 +28,11 @@ dataset <- load("data/rawData.Rdata")
 # Use the package tidygeocoder to turn addresses into coordinates
 ```{r}
 # Needed to change the dataset "df" from a "tibble" type 
-#(which is used by tidyverse) back into a "data.frame" 
-#to be able to run geocode
+# (which is used by tidyverse) back into a "data.frame" 
+# to be able to run geocode
 dataset_with_coordinates <- as.data.frame(df) |>
+  # Only want NCAA Division 1 -FBS
+  filter(ClassificationCode == "1") |>
   mutate(
     # Zipcodes exceeding 5 digits, changed using str_sub
     zipcode = str_sub(zip_text, start = 1, end = 5)
@@ -42,7 +44,6 @@ dataset_with_coordinates <- as.data.frame(df) |>
       addr1_txt, city_txt, state_cd, zipcode, sep = ", ")
   ) |>
   # Some institutions are "NA" and could not get coordinates
-  slice(21:30) |>
   # This is the code that gets the coordinates
   geocode(address = complete_address, method = "osm")
 ```
@@ -123,4 +124,47 @@ division1_summary
 division3_summary
 
 ```
+
+# Wrangling Code for Box Plot Analysis
+```{r}
+#| label: Salary Comparison - Coaches
+coach_box_plot <- df|>
+#just wanting NCAA Division 1 -FBS
+# (NCAA A)
+filter(ClassificationCode == "1") |>
+select(
+#school name, head coach salaries
+  institution_name
+  , HDCOACH_SALARY_MEN
+  , HDCOACH_SALARY_WOMEN)
+```
+
+```{r}
+#| label: Student Aid Comparison
+aid_box_plot <- df|>
+#just wanting NCAA Division 1 -FBS
+# (NCAA A)
+filter(ClassificationCode == "1") |>
+#school name, student aid
+#reporting school aid given men/women
+select(institution_name
+       , STUDENTAID_MEN
+       , STUDENTAID_WOMEN)
+```
+
+```{r}
+#| label: Recruitment Cost Comparison
+recruitment_box_plot <- df |>
+#just wanting NCAA Division 1 -FBS
+# (NCAA A)
+filter(ClassificationCode == "1") |>
+#school name, recruitment budget
+#reporting money spent recruiting men/women athletes
+select(institution_name
+       , RECRUITEXP_MEN
+       , RECRUITEXP_WOMEN)
+```
+
+
+
 
