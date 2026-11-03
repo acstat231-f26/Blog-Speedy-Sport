@@ -182,16 +182,25 @@ division3_summary
 
 # Wrangling Code for Box Plot Analysis
 ```{r}
-#| label: Salary Comparison - Coaches
+#| label: Salary Comparison Coaches
+
 coach_box_plot <- df|>
 #just wanting NCAA Division 1 -FBS
 # (NCAA A)
 filter(ClassificationCode == "1") |>
+  rename(Men_Salary = HDCOACH_SALARY_MEN,
+         , Women_Salary = HDCOACH_SALARY_WOMEN) |>
 select(
 #school name, head coach salaries
   institution_name
-  , HDCOACH_SALARY_MEN
-  , HDCOACH_SALARY_WOMEN)
+  , Men_Salary
+  , Women_Salary)
+
+# wrangle more for box-plot
+coach_box_plot <- coach_box_plot|>
+  pivot_longer(cols = c (Men_Salary, Women_Salary)
+, names_to = "Gender", values_to = "Salary")
+
 ```
 
 ```{r}
