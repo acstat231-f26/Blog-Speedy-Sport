@@ -16,6 +16,7 @@ library(leaflet)
 library(viridis)
 library(ggplot2)
 library(tidygeocoder)
+library(dplyr)
 ```
 
 
@@ -24,29 +25,59 @@ library(tidygeocoder)
 dataset <- load("data/rawData.Rdata")
 ```
 
-# Add a new column to the data that displays the coordinates of each institution
-# Use the package tidygeocoder to turn addresses into coordinates
+# Import "stadiums-geocoded" into this qmd file (used for geospatial map)
 ```{r}
-# Needed to change the dataset "df" from a "tibble" type 
-# (which is used by tidyverse) back into a "data.frame" 
-# to be able to run geocode
-dataset_with_coordinates <- as.data.frame(df) |>
-  # Only want NCAA Division 1 -FBS
-  filter(ClassificationCode == "1") |>
-  mutate(
-    # Zipcodes exceeding 5 digits, changed using str_sub
-    zipcode = str_sub(zip_text, start = 1, end = 5)
-    
- # Create a new column that combines address, zipcode, and city
- #(to get better coordinates)
- # str_c() combines multiple pieces of text into one text
-    ,complete_address = str_c(
-      addr1_txt, city_txt, state_cd, zipcode, sep = ", ")
-  ) |>
-  # Some institutions are "NA" and could not get coordinates
-  # This is the code that gets the coordinates
-  geocode(address = complete_address, method = "osm")
+coordinates <- read.csv("data/stadiums-geocoded.csv")
 ```
+
+# Geospatial Wrangling for Comparing Student Aid
+# Convert city_txt to city in df
+# Use left_join() to combine "df" with "coordinates"
+# Get ratio between men/women aid
+```{r}
+# Rename city
+aid_geospatial <- df |>
+  #just wanting NCAA Division 1 -FBS
+  # (NCAA A)
+  filter(ClassificationCode == "1") |>
+  rename(city = city_txt) |>
+  rename(state = state_cd) |>
+  left_join(coordinates, by = c("city", "state")) |>
+  select(institution_name,
+         STUDENTAID_MEN,
+         STUDENTAID_WOMEN,
+         STUDENTAID_TOTAL,
+         latitude,
+         longitude) |>
+  # Calculate ratio between men and women aid using a proportion
+  # If proportion is greater than 1, than men have more aid than women
+  # If proportion is less than 1, than women have more aid than men
+  mutate(men_women_aid_ratio = STUDENTAID_MEN / STUDENTAID_WOMEN)
+```
+
+# Geospatial Wrangling for Comparing Head Coach Salaries
+# Use similar process from aid_geospatial to create new dataset
+```{r}
+# Rename city
+HDCOACH_salary_geospatial <- df |>
+  #just wanting NCAA Division 1 -FBS
+  # (NCAA A)
+  filter(ClassificationCode == "1") |>
+  rename(city = city_txt) |>
+  rename(state = state_cd) |>
+  left_join(coordinates, by = c("city", "state")) |>
+  select(institution_name,
+         HDCOACH_SALARY_MEN,
+         HDCOACH_SALARY_WOMEN,
+         STUDENTAID_TOTAL,
+         latitude,
+         longitude) |>
+  # Calculate ratio between men and women aid using a proportion
+  # If proportion is greater than 1, than men have more aid than women
+  # If proportion is less than 1, than women have more aid than men
+  mutate(men_women_HDcoach_salary_ratio = HDCOACH_SALARY_MEN / HDCOACH_SALARY_WOMEN)
+```
+
 
 
 ```{r}
