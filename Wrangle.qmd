@@ -237,6 +237,8 @@ recruitment_box_plot <- recruitment_box_plot|>
 
 ```
 
-
-
+# Save all datasets into one big R file
+```{r}
+save(aid_geospatial, HDCOACH_salary_geospatial, division1, division3, coach_box_plot, aid_box_plot, recruitment_box_plot, file = "data/wrangledData.Rdata")
+```
 
