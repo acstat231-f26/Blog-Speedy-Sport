@@ -205,28 +205,36 @@ coach_box_plot <- coach_box_plot|>
 
 ```{r}
 #| label: Student Aid Comparison
+
+# data points for student aid comparison
 aid_box_plot <- df|>
-#just wanting NCAA Division 1 -FBS
-# (NCAA A)
 filter(ClassificationCode == "1") |>
-#school name, student aid
-#reporting school aid given men/women
-select(institution_name
-       , STUDENTAID_MEN
-       , STUDENTAID_WOMEN)
+  rename(Men_Aid= STUDENTAID_MEN,
+         , Women_Aid = STUDENTAID_WOMEN) |>
+select(institution_name, Men_Aid, Women_Aid)
+
+# wrangle more for box-plot
+aid_box_plot <- aid_box_plot|>
+  pivot_longer(cols = c (Men_Aid, Women_Aid)
+, names_to = "Gender", values_to = "Student Aid")
+
 ```
 
 ```{r}
 #| label: Recruitment Cost Comparison
+
+# data points for recruitment spending comparison
 recruitment_box_plot <- df |>
-#just wanting NCAA Division 1 -FBS
-# (NCAA A)
 filter(ClassificationCode == "1") |>
-#school name, recruitment budget
-#reporting money spent recruiting men/women athletes
-select(institution_name
-       , RECRUITEXP_MEN
-       , RECRUITEXP_WOMEN)
+ rename(Men_Recruitment= RECRUITEXP_MEN,
+         , Women_Recruitment = RECRUITEXP_WOMEN) |>
+select(institution_name, Men_Recruitment, Women_Recruitment)
+
+# wrangle more for box-plot
+recruitment_box_plot <- recruitment_box_plot|>
+  pivot_longer(cols = c (Men_Recruitment, Women_Recruitment)
+, names_to = "Gender", values_to = "Recruitment")
+
 ```
 
 
