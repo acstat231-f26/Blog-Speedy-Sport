@@ -50,15 +50,21 @@ aid_geospatial <- df |>
   drop_na(longitude) |>
   distinct(institution_name, .keep_all = TRUE) |>
   select(institution_name,
+         EFMaleCount,
+         EFFemaleCount,
          STUDENTAID_MEN,
          STUDENTAID_WOMEN,
          STUDENTAID_TOTAL,
          latitude,
          longitude) |>
   # Calculate ratio between men and women aid to get a proportion
+  # First calculate how much money athletes are receiving PER PERSON
   # If proportion is greater than 1, than men have more aid than women
   # If proportion is less than 1, than women have more aid than men
-  mutate(men_women_aid_ratio = STUDENTAID_MEN / STUDENTAID_WOMEN)
+  mutate(male_money_per_capita = STUDENTAID_MEN / EFMaleCount,
+         female_money_per_capita = STUDENTAID_WOMEN / EFFemaleCount,
+         male_female_aid_ratio = male_money_per_capita / female_money_per_capita
+  )
 ```
 
 # Geospatial Wrangling for Comparing Head Coach Salaries
@@ -79,6 +85,8 @@ HDCOACH_salary_geospatial <- df |>
   distinct(institution_name, .keep_all = TRUE) |>
   # Filter desired columns
   select(institution_name,
+         NUM_HDCOACH_MEN,
+         NUM_HDCOACH_WOMEN,
          HDCOACH_SALARY_MEN,
          HDCOACH_SALARY_WOMEN,
          STUDENTAID_TOTAL,
@@ -87,7 +95,9 @@ HDCOACH_salary_geospatial <- df |>
   # Calculate ratio between men and women aid to get a proportion
   # If proportion is greater than 1, than men have more aid than women
   # If proportion is less than 1, than women have more aid than men
-  mutate(men_women_HDcoach_salary_ratio = HDCOACH_SALARY_MEN / HDCOACH_SALARY_WOMEN)
+  mutate(male_coach_salary_per_capita = HDCOACH_SALARY_MEN / NUM_HDCOACH_MEN,
+         woman_coach_salary_per_capita = HDCOACH_SALARY_WOMEN / NUM_HDCOACH_WOMEN,
+         male_female_salary_ratio = male_coach_salary_per_capita / woman_coach_salary_per_capita)
 ```
 
 
