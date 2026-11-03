@@ -3,3 +3,46 @@ title: "Daniel"
 format: html
 ---
 
+# Import packages
+```{r}
+library(tidyverse)
+library(rvest)
+library(robotstxt)
+library(readxl)
+library(sf)
+library(leaflet)
+library(viridis)
+library(ggplot2)
+library(tidygeocoder)
+library(dplyr)
+library(tidyr)
+library(maps)
+```
+
+# Import wrangled dataset
+```{r}
+wrangled_data <- load("data/wrangledData.Rdata")
+```
+
+# Create visualization of US map
+```{r}
+# count_df is already created but we need to create a map of the US states and a map of ALL counties instead of just MA
+state_df <- map_data("state")
+
+state_map <- maps::map("state", regions = "."
+                       , plot = FALSE, fill = TRUE) |>
+  st_as_sf()
+
+county_map <- maps::map("county", regions = "."
+                        , plot = FALSE, fill = TRUE) |>
+  st_as_sf()
+
+# Map county within the states
+ggplot() +
+  geom_sf(data=county_map, aes(geometry=geom)
+          , fill = "lightgrey", color = "white") +
+  geom_sf(data=state_map, aes(geometry=geom)
+          , fill = NA, color = "black") +
+  theme_void()
+```
+
