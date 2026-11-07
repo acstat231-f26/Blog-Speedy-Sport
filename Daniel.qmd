@@ -1,6 +1,8 @@
 ---
 title: "Daniel"
 format: html
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Import packages
@@ -17,32 +19,50 @@ library(tidygeocoder)
 library(dplyr)
 library(tidyr)
 library(maps)
+library(usmap)
 ```
 
 # Import wrangled dataset
 ```{r}
-wrangled_data <- load("data/wrangledData.Rdata")
+load("data/wrangledData.Rdata")
 ```
 
-# Create visualization of US map
+# Narrow down the columns we need for visualizing in aid and HDCOACH_salary geospatial
 ```{r}
-# count_df is already created but we need to create a map of the US states and a map of ALL counties instead of just MA
-state_df <- map_data("state")
+aid_visual <- aid_geospatial |>
+  select(institution_name, latitude, longitude, male_female_aid_ratio)
 
-state_map <- maps::map("state", regions = "."
-                       , plot = FALSE, fill = TRUE) |>
-  st_as_sf()
+HDCOACH_salary_visual <- HDCOACH_salary_geospatial |>
+  select(institution_name, latitude, longitude, male_female_salary_ratio)
+```
 
-county_map <- maps::map("county", regions = "."
-                        , plot = FALSE, fill = TRUE) |>
-  st_as_sf()
+# Create "transformed" objects for aid and salary
+# Use transform instead of sf because we are using usmaps package and not maps
+```{r}
+# CRS is Coordinate Reference System
+# Without CRS, sf will assign NA for spatial reference and can't be plot
+# Use us_map transform instead of st_as_sf (part of usmap package)
+aid_transformed <- aid_visual |>
+  usmap_transform(input_names = c("longitude", "latitude"))
 
-# Map county within the states
-ggplot() +
-  geom_sf(data=county_map, aes(geometry=geom)
-          , fill = "lightgrey", color = "white") +
-  geom_sf(data=state_map, aes(geometry=geom)
-          , fill = NA, color = "black") +
-  theme_void()
+HDCOACH_transformed <- HDCOACH_salary_visual |>
+  usmap_transform(input_names = c("longitude", "latitude"))
+```
+
+
+
+# Create visualization of US map and plot each institution for aid
+```{r}
+# From geospatial lab (but using usmaps instead)
+plot_usmap(fill = "lightgrey", color = "white") +
+  geom_sf(data = aid_transformed,
+          aes(color = male_female_aid_ratio),
+              size = 3) +
+  scale_color_viridis_c(option = "magma", direction = -1,
+                     labels = scales::label_percent()) +
+  theme_void() +
+  labs(color = "",
+       title = "Ratio of Male vs. Female Aid for D1 Institutions"
+  )
 ```
 
