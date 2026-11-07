@@ -52,6 +52,10 @@ HDCOACH_transformed <- HDCOACH_salary_visual |>
 
 
 # Create visualization of US map and plot each institution for aid
+# If greater than 1.0, men get more aid than women for that institution
+# If less than 1.0, women get more aid than men for that institution
+# General trend: Institutions in the West seem to have fairly even aid between men and women
+# General trend: Institutions in the Southeast seem to have quite the disparity with men having more aid (Many dark circles in the south)
 ```{r}
 # From geospatial lab (but using usmaps instead)
 plot_usmap(fill = "lightgrey", color = "white") +
@@ -59,10 +63,29 @@ plot_usmap(fill = "lightgrey", color = "white") +
           aes(color = male_female_aid_ratio),
               size = 3) +
   scale_color_viridis_c(option = "magma", direction = -1,
-                     labels = scales::label_percent()) +
+                     labels = scales::label_number()) +
   theme_void() +
   labs(color = "",
        title = "Ratio of Male vs. Female Aid for D1 Institutions"
+  )
+```
+
+# Create visualization of US map and plot each institution for Head Coach Salary
+# Issue: The disparity is so high (in favor of men) that the legend started at 5x rather than 1x
+# Resolution: Had to use "limits" and "scales::squish" to force the scale to start from 1x and still include every point (no NA).
+```{r}
+# From geospatial lab (but using usmaps instead)
+plot_usmap(fill = "lightgrey", color = "white") +
+  geom_sf(data = HDCOACH_transformed,
+          aes(color = male_female_salary_ratio),
+              size = 3) +
+  scale_color_distiller(palette = "Spectral",
+                        limits = c(0, 5), # Forces scale to start at 1
+                        oob = scales::squish, # Groups points that are out of bounds to the nearest scaled number (i.e. 15x is not on the scale so it groups it to 5x).
+                     labels = scales::label_number()) +
+  theme_void() +
+  labs(color = "",
+       title = "Ratio of Male vs. Female Head Coach Salaries for D1 Institutions"
   )
 ```
 
