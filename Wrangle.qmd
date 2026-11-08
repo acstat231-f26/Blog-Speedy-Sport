@@ -1,5 +1,5 @@
 ---
-title: "Wrangle"
+title: "Wrangled Data on College Athletics by Gender"
 author: "Daniel, Courtney, Wesley"
 date: "2026-10-22"
 format: html
