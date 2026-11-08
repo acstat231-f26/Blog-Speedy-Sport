@@ -45,6 +45,10 @@ aid_geospatial <- df |>
   # Rename columns to use left_join()
   rename(city = city_txt) |>
   rename(state = state_cd) |>
+  #left join with dataset coordinates
+  # matching by city and state location
+  # getting dataset with all althetics info
+  # AND geospataial coordinates
   left_join(coordinates, by = c("city", "state")) |>
   # Remove duplicates and NAs
   drop_na(latitude) |>
@@ -81,6 +85,10 @@ HDCOACH_salary_geospatial <- df |>
   # Rename columns to use left_join()
   rename(city = city_txt) |>
   rename(state = state_cd) |>
+   #left join with dataset coordinates
+  # matching by city and state location
+  # getting dataset with all althetics info
+  # AND geospataial coordinates
   left_join(coordinates, by = c("city", "state")) |>
   # Remove duplicates and NAs
   drop_na(latitude) |>
