@@ -15,8 +15,8 @@ library(ggplot2)
 ggplot(coach_box_plot, aes(x=Gender, y=Salary, fill=Gender)) + 
     geom_boxplot(alpha=0.3) +
   labs(title = "Comparison of Coach Salary", y = "Salary (dollars)") +
-  theme_minimal() +
-  scale_fill_manual(values = c("blue", "pink"))
+  scale_fill_manual(values = c("blue", "pink")) +
+    theme_minimal()
 
 ```
 
@@ -25,8 +25,8 @@ ggplot(coach_box_plot, aes(x=Gender, y=Salary, fill=Gender)) +
 ggplot(aid_box_plot, aes(x=Gender, y=`Student Aid`, fill=Gender)) + 
     geom_boxplot(alpha=0.3) +
   labs(title = "Comparison of Student Aid", y = "Student Aid (dollars)") +
-  theme_minimal()+
-    scale_fill_manual(values = c("blue", "pink"))
+    scale_fill_manual(values = c("blue", "pink")) +
+    theme_minimal()
 ```
 
 ```{r}
@@ -34,7 +34,7 @@ ggplot(aid_box_plot, aes(x=Gender, y=`Student Aid`, fill=Gender)) +
 ggplot(recruitment_box_plot, aes(x=Gender, y=Recruitment, fill=Gender)) + 
 geom_boxplot(alpha=0.3) +
 labs(title = "Comparison of Recruitment Spending", y = "Recruitment Spending (dollars)") +
-theme_minimal() +
-    scale_fill_manual(values = c("blue", "pink"))
+    scale_fill_manual(values = c("blue", "pink")) +
+    theme_minimal()
 
 ```
