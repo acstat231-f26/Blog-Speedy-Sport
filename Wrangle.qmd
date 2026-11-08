@@ -36,7 +36,7 @@ coordinates <- read.csv("data/stadiums-geocoded.csv")
 # Use left_join() to combine "df" with "coordinates"
 # Get ratio between men/women aid
 ```{r}
-#| label: Student Aid Ratios
+#| label: Geospatial Student Aid Ratios
 # grabbing from web data
 aid_geospatial <- df |>
   #just wanting NCAA Division 1 -FBS
@@ -72,7 +72,7 @@ aid_geospatial <- df |>
 # Geospatial Wrangling for Comparing Head Coach Salaries
 # Use similar process from aid_geospatial to create new dataset
 ```{r}
-#| label: Head Coaching Ratios
+#| label: Geospatial Head Coaching Ratios
 
 HDCOACH_salary_geospatial <- df |>
   # just wanting NCAA Division 1 -FBS
@@ -104,6 +104,7 @@ HDCOACH_salary_geospatial <- df |>
 ```
 
 
+# Comparisions between NCAA Division I & III
 
 ```{r}
 #| label: Caluclate Expense Ratios : NCAA Divisions I & III
