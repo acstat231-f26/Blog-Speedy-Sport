@@ -11,8 +11,27 @@ library(ggplot2)
 ```
 
 ```{r}
- 
+#| label: Coach Salary
 ggplot(coach_box_plot, aes(x=Gender, y=Salary, file=Gender)) + 
-    geom_boxplot(fill="slateblue", alpha=0.3) 
+    geom_boxplot(fill="slateblue", alpha=0.3) +
+  labs(title = "Comparison of Coach Salary", y = "Salary (dollars)") +
+  theme_minimal()
+
+```
+
+```{r}
+#| label: Student Aid
+ggplot(coach_box_plot, aes(x=Gender, y=Student_Aid, file=Gender)) + 
+    geom_boxplot(fill="slateblue", alpha=0.3) +
+  labs(title = "Comparison of Student Aid", y = "Student Aid (dollars)") +
+  theme_minimal()
+```
+
+```{r}
+#| label: Recruitment Spending
+ggplot(coach_box_plot, aes(x=Gender, y=Recruitment, file=Gender)) + 
+geom_boxplot(fill="slateblue", alpha=0.3) +
+labs(title = "Comparison of Recruitment Spending", y = "Recruitment Spending (dollars)") +
+theme_minimal()
 
 ```
