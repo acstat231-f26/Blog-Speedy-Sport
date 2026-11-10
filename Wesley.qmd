@@ -2,4 +2,108 @@
 title: "Wesley"
 format: html
 ---
+```{r}
+library(tidyverse)
+```
+
+```{r}
+dataset <- load("data/wrangledData.Rdata")
+```
+
+```{r}
+division3_football <- filter(division3, ClassificationCode == 6)
+nrow(division3_football)
+```
+```{r}
+
+spending_data <- bind_rows(division1, division3_football)
+
+nrow(spending_data)
+```
+```{r}
+
+# Creating new column that will be used to group schools in our summary table.
+
+spending_data <- mutate(
+  spending_data,
+  division_label = ifelse(
+    ClassificationCode == 1,
+    "Division I-FBS",
+    "Division III with Football"
+  )
+)
+
+```
+
+```{r}
+
+summary_table <- summarise(
+  group_by(spending_data, division_label),
+  schools = n(),
+  median_spending_ratio = median(spending_ratio)
+)
+
+summary_table
+```
+```{r}
+
+# A spending ratio greater than 1 means men's programs
+# receive more spending than women's programs.
+# A spending ratio less than 1 means women's programs
+# receive more spending than men's programs.
+# A ratio equal to 1 means both receive the same amount.
+
+
+spending_data <- mutate(
+  spending_data,
+  spending_direction = ifelse(
+    spending_ratio > 1,
+    "Higher spending on men",
+    ifelse(
+      spending_ratio < 1,
+      "Higher spending on women",
+      "Equal spending"
+    )
+  )
+)
+```
+
+```{r}
+# Comparing institutional gender spending ratios between
+# NCAA Division I-FBS and Division III with football.
+#
+# Each point represents one institution.
+# Pink points show higher spending on women's programs.
+# Blue points show higher spending on men's programs.
+# The dashed horizontal line at 1 indicates equal spending.
+# Black diamonds show the median ratio for each division.
+
+ggplot(spending_data,
+       aes(x = division_label, y = spending_ratio,
+           color = spending_direction)) +
+  geom_hline(yintercept = 1, linetype = "dashed") +
+  geom_jitter(width = 0.15, height = 0, alpha = 0.5) +
+  geom_point(
+    data = summary_table,
+    aes(x = division_label, y = median_spending_ratio),
+    inherit.aes = FALSE,
+    shape = 18,
+    size = 4,
+    color = "black"
+  ) +
+  scale_color_manual(
+    values = c(
+      "Higher spending on men" = "steelblue",
+      "Higher spending on women" = "deeppink",
+      "Equal spending" = "gray50"
+    )
+  ) +
+  labs(
+    title = "Gender Spending Ratios Across NCAA Divisions",
+    x = "NCAA Division",
+    y = "Men's-to-Women's Spending Ratio",
+    color = "Spending Direction"
+  ) +
+  theme_minimal()
+```
 

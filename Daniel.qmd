@@ -62,7 +62,7 @@ plot_usmap(fill = "lightgrey", color = "white") +
   geom_sf(data = aid_transformed,
           aes(color = male_female_aid_ratio),
               size = 3) +
-  scale_color_viridis_c(option = "magma", direction = -1,
+  scale_color_viridis_c(option = "mako", direction = -1,
                      labels = scales::label_number()) +
   theme_void() +
   labs(color = "",
