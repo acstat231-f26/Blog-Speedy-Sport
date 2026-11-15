@@ -115,7 +115,7 @@ HDCOACH_salary_geospatial <- df |>
 # Comparisions between NCAA Division I & III
 
 ```{r}
-#| label: Caluclate Expense Ratios : NCAA Divisions I & III
+#| label: Calculate Expense Ratios for NCAA Divisions I & III
 
 # We calculate each school's ratio of men's athletic expenses
 # to women's athletic expenses, then compare the divisions.
