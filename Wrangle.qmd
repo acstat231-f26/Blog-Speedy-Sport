@@ -157,7 +157,7 @@ division3 <- mutate(division3,
 ```
 
 ```{r}
-#| label: Summarizing the Spending Ratios : NCAA Divisions I & III
+#| label: Summarizing the Spending Ratios for NCAA Divisions I & III
 
 # Use the median to compare typical institutions without
 # allowing unusually large ratios to dominate the comparison.
