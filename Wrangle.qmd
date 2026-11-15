@@ -142,7 +142,7 @@ division3 <- filter(division3,
 
 
 ```{r}
-#| label:Calculating Spending Ratio : NCAA Divisions I & III
+#| label: Calculating Spending Ratio for NCAA Divisions I & III
 # 1 = equal spending on men's and women's programs.
 # >1 = means higher spending on men's programs.
 # <1 = means higher spending on women's programs.
