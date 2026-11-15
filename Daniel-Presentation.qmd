@@ -1,0 +1,81 @@
+---
+title: "Daniel-Presentation"
+subtitle: "Practice for website visualizations"
+format: html
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+# Improve digit display and NA display for kable tables
+options(scipen = 1, knitr.kable.NA = "")
+
+# Load necessary packages
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(rvest)
+library(robotstxt)
+library(readxl)
+library(sf)
+library(leaflet)
+library(viridis)
+library(ggplot2)
+library(tidygeocoder)
+library(dplyr)
+library(tidyr)
+library(maps)
+library(usmap)
+```
+
+## Import visualization R file
+```{r}
+load("data/danielVisualization.Rdata")
+```
+
+## Recreate visualizations from Daniel.qmd in a tab format
+::: {.panel-tabset}
+
+### Tab 1
+
+
+```{r}
+#| fig-cap: "From the visualization, we can see that institutions located in the SouthEast tend to have a higher disparity favored towards men. In other words, male students tend to recieve more financial aid than women at institutions in the SouthEast. On the contrary, institutions located in the West tend to have little-to-no disparities as indicated by the lighter colors compared to the darker ones in the East."
+# From geospatial lab (but using usmaps instead)
+plot_usmap(fill = "lightgrey", color = "white") +
+  geom_sf(data = aid_transformed,
+          aes(color = male_female_aid_ratio),
+              size = 3) +
+  scale_color_viridis_c(option = "mako", direction = -1,
+                     labels = scales::label_number()) +
+  theme_void() +
+  labs(color = "",
+       title = "Ratio of Male vs. Female Aid for D1 Institutions"
+  )
+```
+
+
+
+### Tab 2
+
+
+```{r}
+#| fig-cap: "From the second visualization, we can see that, unlike financial aid, most institutions tend to pay male head coaches more than female head coaches which is indicated by the dark red colors all over the map with a few exceptions in the East. Inversely, we can also deduce that none of the institutions on the map pay a higher salary towards women indiciated by the absence of blue dots on the map."
+# From geospatial lab (but using usmaps instead)
+plot_usmap(fill = "lightgrey", color = "white") +
+  geom_sf(data = HDCOACH_transformed,
+          aes(color = male_female_salary_ratio),
+              size = 3) +
+  scale_color_distiller(palette = "Spectral",
+                        limits = c(0, 5), # Forces scale to start at 1
+                        oob = scales::squish, # Groups points that are out of bounds to the nearest scaled number (i.e. 15x is not on the scale so it groups it to 5x).
+                     labels = scales::label_number()) +
+  theme_void() +
+  labs(color = "",
+       title = "Ratio of Male vs. Female Head Coach Salaries for D1 Institutions"
+  )
+```
+
+
+:::

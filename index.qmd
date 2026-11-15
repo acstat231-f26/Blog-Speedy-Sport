@@ -5,7 +5,9 @@ author:
 - "Courtney Hall"
 - "Wesley Maube"
 - "Daniel Yoo"
-abstract: "A brief abstract summarizing your project is required here. This abstract, along with the first image or figure in your blog, will be used as a preview to your blog on the course's landing page for all the blogs."
+abstract: "Our group decided to explore gender disparities within collegiate sports. Specifically, we wanted to examine differences within financial aid offers and head-coach salaries between students and staff respectively. By utilizing box plots, maps, and scatterplots, we showcase disparities between divisions, states, and individual institutions."
+
+note: "This abstract, along with the first image or figure in your blog, will be used as a preview to your blog on the course's landing page for all the blogs."
 ---
 
 ```{r}
@@ -19,6 +21,18 @@ options(scipen = 1, knitr.kable.NA = "")
 library(tidyverse)
 library(knitr)
 library(kableExtra)
+library(rvest)
+library(robotstxt)
+library(readxl)
+library(sf)
+library(leaflet)
+library(viridis)
+library(ggplot2)
+library(tidygeocoder)
+library(dplyr)
+library(tidyr)
+library(maps)
+library(usmap)
 ```
 
 # Getting started

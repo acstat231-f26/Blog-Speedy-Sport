@@ -89,3 +89,7 @@ plot_usmap(fill = "lightgrey", color = "white") +
   )
 ```
 
+# Save visualization datasets into one R file and import it into Daniel-Presentation
+```{r}
+save(aid_transformed, HDCOACH_transformed, file = "data/danielVisualization.Rdata")
+```
