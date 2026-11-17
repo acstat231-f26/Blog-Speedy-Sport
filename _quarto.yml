@@ -5,7 +5,7 @@ project:
 # Can customize this section with options from the following page:
 # https://quarto.org/docs/websites/website-navigation.html
 website:
-  title: "Website title"
+  title: "Blog Speedy Sport"
   navbar:
     left:
       - href: index.qmd # Must be included as index.qmd
@@ -13,9 +13,9 @@ website:
         icon: house # Get icon names: https://icons.getbootstrap.com/?q=home
       # Add or remove additional pages below in desired order of appearance
       - href: Geospatial-Analysis.qmd
-	text: "Geospatial Analysis"
-      - href: yet-another-page.qmd
-        text: "Yet another page with a custom label and icon"
+	    text: "Geospatial Analysis"
+      - href: NCAA-1-and-3.qmd
+        text: "NCAA Division 1 Vs. 3"
         icon: arrow-through-heart-fill
         
 format:
