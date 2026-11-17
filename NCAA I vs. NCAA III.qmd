@@ -1,3 +1,9 @@
+---
+title: "NCAA I vs NCAA III: Recruitment Ability"
+author: - "Wesley Maube"
+- "Daniel Yoo"
+- "Courtney Hall"
+---
 
 This is *yet* another page that can be linked! You are not required to include more than just *index.qmd*, but you are welcome to make content on different pages, if desired. This may help with managing GitHub commits, as well. 
 
