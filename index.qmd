@@ -1,6 +1,6 @@
 ---
 title: "Speedy-Sport"
-subtitle: "Optional subtitle"
+subtitle: "new subtitle"
 author: 
 - "Courtney Hall"
 - "Wesley Maube"
