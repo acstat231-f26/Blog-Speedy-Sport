@@ -26,6 +26,7 @@ library(tidyr)
 dataset <- load("data/rawData.Rdata")
 ```
 
+# Wrangling by Daniel
 # Import "stadiums-geocoded" into this qmd file (used for geospatial map)
 ```{r}
 coordinates <- read.csv("data/stadiums-geocoded.csv")
@@ -112,6 +113,7 @@ HDCOACH_salary_geospatial <- df |>
 ```
 
 
+# Wrangling by Wesley
 # Comparisions between NCAA Division I & III
 
 ```{r}
@@ -181,6 +183,7 @@ division3_summary
 ```
 
 
+# Wrangling by Courtney
 # Wrangling Code for Box Plot Analysis
 ```{r}
 #| label: Salary Comparison Coaches
