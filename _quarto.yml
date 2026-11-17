@@ -13,7 +13,7 @@ website:
         icon: house # Get icon names: https://icons.getbootstrap.com/?q=home
       # Add or remove additional pages below in desired order of appearance
       - href: Geospatial-Analysis.qmd
-	    text: "Geospatial Analysis"
+        text: "Geospatial Analysis"
       - href: NCAA-1-and-3.qmd
         text: "NCAA Division 1 Vs. 3"
         icon: arrow-through-heart-fill
