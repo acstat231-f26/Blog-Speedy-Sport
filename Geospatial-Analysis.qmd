@@ -1,5 +1,5 @@
 ---
-title: "Geospacial Analysis"
+title: "Geospatial Analysis"
 author: - "Daniel Yoo"
 - "Courtney Hall"
 - "Wesley Maube"
