@@ -95,7 +95,7 @@ These are not required for this project but are good practice.
 
 You can create subpages by simply creating new qmd files. Any subpage you want to include on the website should be added to the website navigation list in the `_quarto.yml` file. 
 
-You can [link to another page on the website](another-page.qmd) by using just the filepath to the corresponding qmd file. You can also [link directly to a section of a subpage](yet-another-page.qmd#sec-note). 
+You can [link to another page on the website](Geospacial-Analysis.qmd) by using just the filepath to the corresponding qmd file. You can also [link directly to a section of a subpage](NCAA-1-and-3.qmd#sec-note). 
 
 
 ## Creating the bibliography
