@@ -131,5 +131,26 @@
     "title": "Daniel-Presentation",
     "section": "Recreate visualizations from Daniel.qmd in a tab format",
     "text": "Recreate visualizations from Daniel.qmd in a tab format\n\nTab 1Tab 2\n\n\n\n\n\n\n\nFrom the visualization, we can see that institutions located in the SouthEast tend to have a higher disparity favored towards men. In other words, male students tend to recieve more financial aid than women at institutions in the SouthEast. On the contrary, institutions located in the West tend to have little-to-no disparities as indicated by the lighter colors compared to the darker ones in the East.\n\n\n\n\n\n\n\n\n\n\n\nFrom the second visualization, we can see that, unlike financial aid, most institutions tend to pay male head coaches more than female head coaches which is indicated by the dark red colors all over the map with a few exceptions in the East. Inversely, we can also deduce that none of the institutions on the map pay a higher salary towards women indiciated by the absence of blue dots on the map."
+  },
+  {
+    "objectID": "Geospatial-Analysis.html",
+    "href": "Geospatial-Analysis.html",
+    "title": "Geospatial Analysis",
+    "section": "",
+    "text": "This is just another page that can be linked! You are not required to include more than just index.qmd, but you are welcome to make content on different pages, if desired. This may help with managing GitHub commits, as well.\nEach page can have it’s own list of references based on what you cite. For example, did you know that good graphs “have a clear purpose, show the data clearly, and make the message obvious”? (Vandemeulebroecke et al. 2019).\n\n\n\n\nReferences\n\nVandemeulebroecke, M., Baillie, M., Carr, D., Kanitra, L., Margolskee, A., Wright, A., and Magnusson, B. (2019), “How can we make better graphs? An initiative to increase the graphical expertise and productivity of quantitative scientists,” Pharmaceutical Statistics, 18, 106–114. https://doi.org/10.1002/pst.1912."
+  },
+  {
+    "objectID": "NCAA-1-and-3.html",
+    "href": "NCAA-1-and-3.html",
+    "title": "NCAA I vs NCAA III: Recruitment Ability",
+    "section": "",
+    "text": "This is yet another page that can be linked! You are not required to include more than just index.qmd, but you are welcome to make content on different pages, if desired. This may help with managing GitHub commits, as well."
+  },
+  {
+    "objectID": "NCAA-1-and-3.html#sec-note",
+    "href": "NCAA-1-and-3.html#sec-note",
+    "title": "NCAA I vs NCAA III: Recruitment Ability",
+    "section": "A note",
+    "text": "A note\nNotice that you can also modify the YAML headings at the top of each page as I did in the first subpage or completely delete them, as I did here."
   }
 ]
