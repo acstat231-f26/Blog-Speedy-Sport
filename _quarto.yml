@@ -12,7 +12,7 @@ website:
         text: "Home"
         icon: house # Get icon names: https://icons.getbootstrap.com/?q=home
       # Add or remove additional pages below in desired order of appearance
-      - another-page.qmd
+      - Geospatial-Analysis.qmd
       - href: yet-another-page.qmd
         text: "Yet another page with a custom label and icon"
         icon: arrow-through-heart-fill
