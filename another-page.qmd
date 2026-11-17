@@ -1,6 +1,8 @@
 ---
-title: "Another page"
-author: "Kat Correia"
+title: "Geospacial Analysis"
+author: - "Daniel Yoo"
+- "Courtney Hall"
+- "Wesley Maube"
 ---
 
 This is just another page that can be linked! You are not required to include more than just *index.qmd*, but you are welcome to make content on different pages, if desired. This may help with managing GitHub commits, as well. 
