@@ -1,6 +1,6 @@
 ---
 title: "Speedy-Sport"
-subtitle: "Finding Disparities In Salary/Financial Aid Between Men and Women in Collegiate sports"
+subtitle: "Finding Disparities in Salary/Financial Aid Between Men and Women in Collegiate Sports"
 author: 
 - "Courtney Hall"
 - "Wesley Maube"
