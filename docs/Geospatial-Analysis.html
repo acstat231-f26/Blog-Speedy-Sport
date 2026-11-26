@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Daniel Yoo, Courtney Hall, Wesley Maube">
-<meta name="dcterms.date" content="2026-11-17">
+<meta name="author" content="Daniel Yoo">
+<meta name="dcterms.date" content="2026-11-26">
 
 <title>Geospatial Analysis – Blog Speedy Sport</title>
 <style>
@@ -286,7 +286,8 @@ div.csl-indent {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./Geospatial-Analysis.html" aria-current="page"> 
+    <a class="nav-link active" href="./Geospatial-Analysis.html" aria-current="page"> <i class="bi bi-globe-americas" role="img">
+</i> 
 <span class="menu-text">Geospatial Analysis</span></a>
   </li>  
   <li class="nav-item">
@@ -306,8 +307,15 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#import-visualization-r-file" id="toc-import-visualization-r-file" class="nav-link active" data-scroll-target="#import-visualization-r-file">Import visualization R file</a></li>
+  <li><a href="#recreate-visualizations-from-daniel.qmd-in-a-tab-format" id="toc-recreate-visualizations-from-daniel.qmd-in-a-tab-format" class="nav-link" data-scroll-target="#recreate-visualizations-from-daniel.qmd-in-a-tab-format">Recreate visualizations from Daniel.qmd in a tab format</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -316,6 +324,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Geospatial Analysis</h1>
+<p class="subtitle lead">Finding gender disparities between states/regions using geospatial data analysis</p>
 </div>
 
 
@@ -325,14 +334,14 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Daniel Yoo, Courtney Hall, Wesley Maube </p>
+             <p>Daniel Yoo </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Last updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 17, 2026</p>
+      <p class="date">November 26, 2026</p>
     </div>
   </div>
   
@@ -344,11 +353,46 @@ div.csl-indent {
 </header>
 
 
+<section id="import-visualization-r-file" class="level2">
+<h2 class="anchored" data-anchor-id="import-visualization-r-file">Import visualization R file</h2>
+</section>
+<section id="recreate-visualizations-from-daniel.qmd-in-a-tab-format" class="level2">
+<h2 class="anchored" data-anchor-id="recreate-visualizations-from-daniel.qmd-in-a-tab-format">Recreate visualizations from Daniel.qmd in a tab format</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Tab 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Tab 2</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Geospatial-Analysis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>From the visualization, we can see that institutions located in the SouthEast tend to have a higher disparity favored towards men. In other words, male students tend to recieve more financial aid than women at institutions in the SouthEast. On the contrary, institutions located in the West tend to have little-to-no disparities as indicated by the lighter colors compared to the darker ones in the East.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Geospatial-Analysis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>From the second visualization, we can see that, unlike financial aid, most institutions tend to pay male head coaches more than female head coaches which is indicated by the dark red colors all over the map with a few exceptions in the East. Inversely, we can also deduce that none of the institutions on the map pay a higher salary towards women indiciated by the absence of blue dots on the map.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>This is just another page that can be linked! You are not required to include more than just <em>index.qmd</em>, but you are welcome to make content on different pages, if desired. This may help with managing GitHub commits, as well.</p>
 <p>Each page can have it’s own list of references based on what you cite. For example, did you know that good graphs “have a clear purpose, show the data clearly, and make the message obvious”? <span class="citation" data-cites="vandem2019">(<a href="#ref-vandem2019" role="doc-biblioref">Vandemeulebroecke et al. 2019</a>)</span>.</p>
 
 
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-vandem2019" class="csl-entry" role="listitem">
