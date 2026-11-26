@@ -4,12 +4,6 @@ subtitle: "Finding gender disparities between states/regions using geospatial da
 author: "Daniel Yoo"
 ---
 
----
-title: "Daniel-Presentation"
-subtitle: "Practice for website visualizations"
-format: html
----
-
 ```{r}
 #| label: setup
 #| include: false
