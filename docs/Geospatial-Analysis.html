@@ -307,15 +307,8 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#import-visualization-r-file" id="toc-import-visualization-r-file" class="nav-link active" data-scroll-target="#import-visualization-r-file">Import visualization R file</a></li>
-  <li><a href="#recreate-visualizations-from-daniel.qmd-in-a-tab-format" id="toc-recreate-visualizations-from-daniel.qmd-in-a-tab-format" class="nav-link" data-scroll-target="#recreate-visualizations-from-daniel.qmd-in-a-tab-format">Recreate visualizations from Daniel.qmd in a tab format</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -353,11 +346,7 @@ div.csl-indent {
 </header>
 
 
-<section id="import-visualization-r-file" class="level2">
-<h2 class="anchored" data-anchor-id="import-visualization-r-file">Import visualization R file</h2>
-</section>
-<section id="recreate-visualizations-from-daniel.qmd-in-a-tab-format" class="level2">
-<h2 class="anchored" data-anchor-id="recreate-visualizations-from-daniel.qmd-in-a-tab-format">Recreate visualizations from Daniel.qmd in a tab format</h2>
+<p>This page showcases the geospatial analysis, which uses a map of the entire US (including Alaska and Hawaii). This visualization was obtained using the “usmap” package because the regular “maps” package did not provide Alaska and Hawaii in its visualization. The coordinates of each institution was provided by <span class="citation" data-cites="collegecoordinates"><span class="nocase">gboeing</span> (<a href="#ref-collegecoordinates" role="doc-biblioref">2016</a>)</span> and the overall data (financial aid and salaries of men and women) was obtained by the U.S. Department of Education (<span class="citation" data-cites="rawdata">Education (<a href="#ref-rawdata" role="doc-biblioref">2025</a>)</span>). The implications of these visualizations can help us understand regional disparities across the United States, which builds off of the initial box plot visualization that gives us a more general idea of the disparities between men and women.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Tab 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Tab 2</a></li></ul>
 <div class="tab-content">
@@ -387,16 +376,16 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>This is just another page that can be linked! You are not required to include more than just <em>index.qmd</em>, but you are welcome to make content on different pages, if desired. This may help with managing GitHub commits, as well.</p>
-<p>Each page can have it’s own list of references based on what you cite. For example, did you know that good graphs “have a clear purpose, show the data clearly, and make the message obvious”? <span class="citation" data-cites="vandem2019">(<a href="#ref-vandem2019" role="doc-biblioref">Vandemeulebroecke et al. 2019</a>)</span>.</p>
 
 
 
-</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-vandem2019" class="csl-entry" role="listitem">
-Vandemeulebroecke, M., Baillie, M., Carr, D., Kanitra, L., Margolskee, A., Wright, A., and Magnusson, B. (2019), <span>“How can we make better graphs? An initiative to increase the graphical expertise and productivity of quantitative scientists,”</span> <em>Pharmaceutical Statistics</em>, 18, 106–114. <a href="https://doi.org/10.1002/pst.1912">https://doi.org/10.1002/pst.1912</a>.
+<div id="ref-rawdata" class="csl-entry" role="listitem">
+Education, U. S. D. of (2025), <span>“Equity in athletics data analysis,”</span> Available at <a href="https://ope.ed.gov/athletics/#/datafile/list">https://ope.ed.gov/athletics/#/datafile/list</a>.
+</div>
+<div id="ref-collegecoordinates" class="csl-entry" role="listitem">
+<span class="nocase">gboeing</span> (2016), <span>“Stadiums-geocoded,”</span> Available at <a href="https://github.com/gboeing/data-visualization/blob/main/ncaa-football-stadiums/data/stadiums-geocoded.csv">https://github.com/gboeing/data-visualization/blob/main/ncaa-football-stadiums/data/stadiums-geocoded.csv</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
